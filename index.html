@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Profile</title>
+    <script>
+        function editProfile() {
+            // Hide the profile display and show the edit form
+            document.querySelector('.container').style.display = 'none';
+            document.querySelector('.container-edit').style.display = 'block';
+
+            // Populate the edit form with existing data
+            const name = document.querySelector('#name').textContent;
+            document.querySelector('#input-name').value = name;
+
+            const email = document.querySelector('#email').textContent;
+            document.querySelector('#input-email').value = email;
+
+            const interests = document.querySelector('#interests').textContent;
+            document.querySelector('#input-interests').value = interests;
+        }
+
+        function saveProfile() {
+            // Save the updated values to the display section
+            document.querySelector('#name').textContent = document.querySelector('#input-name').value;
+            document.querySelector('#email').textContent = document.querySelector('#input-email').value;
+            document.querySelector('#interests').textContent = document.querySelector('#input-interests').value;
+
+            // Hide the edit form and show the profile display
+            document.querySelector('.container').style.display = 'block';
+            document.querySelector('.container-edit').style.display = 'none';
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container, .container-edit {
+            margin: 10px 0;
+        }
+        img {
+            border-radius: 50%;
+            display: block;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        hr {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Profile display section -->
+    <div class="container" style="display: block;">
+        <h1>User Profile</h1>
+        <img src="/profile-picture/IMG_20230703_094423~2 (1).jpg" alt="Profile Picture" width="100" height="100">
+        <p><strong>Name:</strong> <span id="name">Sharath</span></p>
+        <hr/>
+        <p><strong>Email:</strong> <span id="email">sharath1812002@gmail.com</span></p>
+        <hr/>
+        <p><strong>Interests:</strong> <span id="interests">Coding</span></p>
+        <hr/>
+        <button onclick="editProfile()">Edit Profile</button>
+    </div>
+
+    <!-- Profile edit form -->
+    <div class="container-edit" style="display: none;">
+        <h1>Edit User Profile</h1>
+        <img src="/profile-picture/IMG_20230703_094423~2 (1).jpg" alt="Profile Picture" width="100" height="100">
+        <p>
+            <label for="input-name"><strong>Name:</strong></label>
+            <input id="input-name" type="text" />
+        </p>
+        <hr/>
+        <p>
+            <label for="input-email"><strong>Email:</strong></label>
+            <input id="input-email" type="email" />
+        </p>
+        <hr/>
+        <p>
+            <label for="input-interests"><strong>Interests:</strong></label>
+            <input id="input-interests" type="text" />
+        </p>
+        <hr/>
+        <button onclick="saveProfile()">Save Profile</button>
+    </div>
+</body>
+</html>
